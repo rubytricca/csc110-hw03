@@ -1,7 +1,7 @@
 """
-Name: (put your name here)
-Peers: (add any collaborators)
-References: (anything you checked to solve this)
+Name: Ruby
+Peers: None
+References: My notes
 """
 
 # imported modules
@@ -28,9 +28,18 @@ def read_five_ints():
         # convert to int
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
-
-        pass
-
+        int_str=input(str("Give me the next grade in [0 to 10]:"))
+        if int_str.isdigit():
+             x=int(int_str)
+             if x in range (0,11):
+                    grades[idx] = x
+             else:
+                    print("Error in read_five_ints: input integer outside of range")
+                    exit()
+        else:
+            print("Error in read_five_ints: input string is not for an integer")
+            exit()
+        
     #Anything with this indentation is NO LONGER inside the loop
 
 
@@ -45,7 +54,22 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
+    x=input(str("Pick 'a' for mean, 'b' for median, 'c' for mode: "))
+    if x=="a":
+        print("picked: Mean")
+        avg = statistics.mean(grades)
+        return avg
+    elif x=="b":
+        print("picked: Median")
+        avg = statistics.median(grades)
+        return avg
+    elif x=="c":
+        print("picked: Mode")
+        avg = statistics.mode(grades)
+        return avg
+    else:
+           print( "Error in pick_averaging_method: incorrect option picked")
+           exit()
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -58,7 +82,15 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+    y=input(str("Pick '1' for print average, or '2' for plot average: "))
+    if y=="1":
+        print_list_and_average(average)
+    elif y=="2":
+        plot_grades(average)
+    else:
+        print("Error in pick_visualization: incorrect option picked")
+        exit()
+
 
 
 # ---------------------------------------
